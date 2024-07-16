@@ -14,3 +14,8 @@ Ne te concentre pas sur l’esthétique mais sur l’essentiel : quelque chose d
 Si tu as des questions, n’hésite pas à m’envoyer un message !
 
 Encore une fois, n'y passe pas trop de temps, si tu n'as pas le temps de finir ce n'est pas grave ; l'essentiel est qu'on puisse en discuter ensemble par la suite.
+
+# How to run
+
+cd buddy_test
+flutter run
