@@ -17,5 +17,7 @@ Encore une fois, n'y passe pas trop de temps, si tu n'as pas le temps de finir c
 
 # How to run
 
+```bash
 cd buddy_test
 flutter run
+```
