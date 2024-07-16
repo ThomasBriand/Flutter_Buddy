@@ -1,5 +1,5 @@
 # Flutter_Buddy
-This is the technical test given by buddy post interview for an internship
+This is the technical test given by buddy post-interview for an internship
 # Subject
 # Mini appli Flutter
 
