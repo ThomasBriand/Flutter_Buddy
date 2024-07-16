@@ -9,10 +9,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Question> myQuestions = [
-    Question(question: "What is your favorite food?", number: 1),
+    Question(question: "What is your favorite type food?", number: 1),
     Question(question: "What is your favorite startup?", number: 2),
-    Question(question: "What is your favorite student?", number: 3),
+    Question(question: "Who is your favorite student?", number: 3),
     Question(question: "What is your favorite game?", number: 4),
+    Question(question: "What is your favorite city?", number: 5),
+    Question(question: "What is your favorite sport?", number: 6),
+    Question(question: "Where do you live?", number: 7),
+    Question(question: "What is your favorite programming language?", number: 8),
   ];
 
   int currentIndex = 0;
@@ -79,6 +83,28 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  double _calculateProgress() {
+    return (currentIndex + 1) / myQuestions.length;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Questionnaire Buddy'),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(4.0),
+          child: LinearProgressIndicator(
+            value: _calculateProgress(),
+            backgroundColor: Colors.grey[300],
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+          ),
+        ),
+      ),
+      body: showAnswers ? _displayAnswers() : _questionView(),
+    );
+  }
+
   Widget _questionView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ElevatedButton(
           onPressed: _nextQuestion,
-          child: Text(currentIndex == myQuestions.length - 1 ? 'See result' : 'Next'),
+          child: Text('Next'),
         ),
       ],
     );
@@ -124,23 +150,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(bottom: 20),
+          margin: EdgeInsets.only(bottom: 20), // Add bottom margin
           child: ElevatedButton(
             onPressed: _backToQuestions,
             child: Text('Back to Questions'),
           ),
         ),
       ],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Questionnaire Buddy'),
-      ),
-      body: showAnswers ? _displayAnswers() : _questionView(),
     );
   }
 }
